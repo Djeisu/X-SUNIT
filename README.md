@@ -143,13 +143,13 @@
     GET: localhost:3000/api/v1/report/last-location/:id
 ```
 
-#Considarations
+# Considarations
 
 I Realy liked developing this REST API, I wanted to learn about Ruby and the framework Rails, but I didn't start yet, with this opportunity I could praticed and see little a little bit bit how Ruby on Rails worked.
 
 About the code. I applied some simple techniques. 
 
-####In the Database I created three tables:
+#### In the Database I created three tables:
 
 * *survivors*: This table keeps all the basic informations of the people. As flag abducted is for determine if that survivor is abducted or non-abducted, basically.
 
