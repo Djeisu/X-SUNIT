@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Survivor: one
+  latitude: 9.99
+  longitude: 9.99
+
+two:
+  Survivor: two
+  latitude: 9.99
+  longitude: 9.99
