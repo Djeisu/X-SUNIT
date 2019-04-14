@@ -4,11 +4,15 @@ class Survivor < ApplicationRecord
     validates :name, presence: true
     validates :age, presence: true
     validates :gender, presence: true
-    
     validates :abducted, presence: false
-
     validates :latitude, presence: true
     validates :longitude, presence: true
+    
+    before_save :default_values
+
+    def default_values
+        self.abducted ||= false
+    end
 
     # # Create Triggers for Survivors (I don't know exactly how not execute this when i get this model, sorry)
     # trigger.after(:insert) do

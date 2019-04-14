@@ -6,12 +6,20 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-50.times do
+100.times do
     Survivor.create({
         name: Faker::Name.name,
         age: Faker::Number.number(2),
         gender: Faker::Gender.binary_type,
+        abducted: false,
         latitude: Faker::Address.latitude,
         longitude: Faker::Address.longitude
+    })
+end
+
+300.times do
+    ReportAbducted.create({
+        survivor_report_id: Faker::Number.number(2),
+        survivor_abducted_id: Faker::Number.number(2)
     })
 end

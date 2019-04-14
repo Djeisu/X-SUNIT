@@ -1,37 +1,22 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**This is an _REST API_ develop for testing my skills in the job's select proccess of the gocase**
 
-Things you may want to cover:
+# Configs
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Framework: **Rails**
+* Language: **Ruby**
+* Database: **PostgreSQL**
 
 # For Using
 
-## Instaling gem
+## Install gems
 
 ```
  $ bundle install
 ```
 
-## Create database Postgresql
+## Create database
 
 ```
  $ rake db:create
@@ -64,9 +49,13 @@ Things you may want to cover:
 
 # For Testing
 
- ### Route Survivor: localhost:3000/api/v1/survivors
+## Default Route 
 
-## Show all survivor order by name here
+```
+    URL: localhost:3000/api/v1/
+```
+
+## Show all survivors order by name
 
 ```
     GET: localhost:3000/api/v1/survivors
@@ -106,7 +95,8 @@ Things you may want to cover:
 
     {"latitude": Decimal, "longitude": Decimal}
 ```
-## Report Abducted
+
+## Report Abductedion
 
 ```
     POST: localhost:3000/api/v1/report
@@ -118,4 +108,53 @@ Things you may want to cover:
 
     {"survivor_report_id": Integer, "survivor_abducted_id": Integer}
 ```
-# Explication
+
+## Reports
+
+* Percentage of abducted survivors.
+
+```
+    GET: localhost:3000/api/v1/report/abducteds/
+```
+
+* Percentage of non-abducted survivors.
+
+```
+    GET: localhost:3000/api/v1/report/non-abducteds/
+```
+
+* List of all survivors names, by alphabetic order, with an identification to know who was abducted.
+
+**All Infomations**
+
+```
+    GET: localhost:3000/api/v1/survivors/
+``` 
+
+**List of names, by alphabetic order, is Abudcted?**
+
+```
+    GET localhost:3000/api/v1/report/survivors
+```
+
+**Last Location by id**
+
+```
+    GET: localhost:3000/api/v1/report/last-location/:id
+```
+
+#Considarations
+
+I Realy liked developing this REST API, I wanted to learn about Ruby and the framework Rails, but I didn't start yet, with this opportunity I could praticed and see little a little bit bit how Ruby on Rails worked.
+
+About the code. I applied some simple techniques. 
+
+####In the Database I created three tables:
+
+* *survivors*: This table keeps all the basic informations of the people. As flag abducted is for determine if that survivor is abducted or non-abducted, basically.
+
+* *log_location*: This table is for keeping the informations of the all locations registered in the base, I created this table in case other survivor wants to track one person. A Trigger is responsible for inserting new rows in that table whenever a location in table survivors is changed.
+
+* *report_abduceted*: This table is for keeping the abduction reports of anyone. In this case I created one filter for a survivor report an abduction if they haven't been abducted and they don't report its own abduction. Whenever one data is inserted in the table a trigger is executed checking if that reported survivor has three or more reports, if it has the trigger will update the row of that survivor in the Table survivors checking true in the column _"abducted"_.
+
+*I opted for using triggers because it is more confortable for me, Using this technique I can let the database execute some functions and don't leave all codes for my controller. And sometimes it's faster to use triggers.*
