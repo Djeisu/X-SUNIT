@@ -158,3 +158,18 @@ About the code. I applied some simple techniques.
 * *report_abduceted*: This table is for keeping the abduction reports of anyone. In this case I created one filter for a survivor report an abduction if they haven't been abducted and they don't report its own abduction. Whenever one data is inserted in the table a trigger is executed checking if that reported survivor has three or more reports, if it has the trigger will update the row of that survivor in the Table survivors checking true in the column _"abducted"_.
 
 *I opted for using triggers because it is more confortable for me, Using this technique I can let the database execute some functions and don't leave all codes for my controller. And sometimes it's faster to use triggers.*
+
+#### Observations
+
+During the process I thought about some cases that weren't required, but would be Interesting to treat.
+
+* What's missing:
+
++ Survivors that have escaped from the "matrix" -> what happens? do the abducted status reset? and if the swapped survivor is ther on the streets? how to deal with these cases? kill the imposter?
++ A survivor can report an abduction more than once, I didn't treat this specific case, but it wouldn't be difficult because I've already created a table that registers who has reported each other. :)
+
+* What can be added:
+
++ I believe that developing an app as a view to show the result would be valid, I'm thinking about developing a PWA later for learning purposes. 
+
+Anyhow, I'm very grateful for being part of this selection, and I hope that you like my code. During the development I've faced some difficulties like trigger creation, mainly becaus of my lack of knowledge about the framwork, thath's why I ended not refactoring the models as i would like, but I understood its functionality and I'm willing to enhance my Rails knowledges, because I thought it was fun developing on it. Well, I think this is it, once more thanks for the challenge, it was very fun, I think I'll make the PWA now. ;)
