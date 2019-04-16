@@ -4,8 +4,7 @@
 
 # Configs
 
-* Framework: **Rails**
-* Language: **Ruby**
+* Framework: **Ruby on Rails**
 * Database: **PostgreSQL**
 
 # For Using
