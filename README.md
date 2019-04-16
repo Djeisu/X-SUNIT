@@ -159,7 +159,7 @@ About the code. I applied some simple techniques.
 
 *I opted for using triggers because it is more confortable for me, Using this technique I can let the database execute some functions and don't leave all codes for my controller. And sometimes it's faster to use triggers.*
 
-#### Observations
+# Observations
 
 During the process I thought about some cases that weren't required, but would be Interesting to treat.
 
